@@ -423,7 +423,7 @@ private:
         string startDate = getValidDate();
         string endDate = getValidDate();
 
-        // Ensure start date is before end date
+        // Ensure start date is before end date (string comparison works for YYYY-MM-DD format)
         if (startDate > endDate)
         {
             cout << "Warning: Start date is after end date. Swapping dates.\n";
@@ -433,7 +433,7 @@ private:
         cout << "\n--- Expenses from " << startDate << " to " << endDate << " ---\n";
         bool found = false;
 
-        // Check each expense against date range
+        // Check each expense against date range (string comparison works for YYYY-MM-DD format)
         for (int i = 0; i < size; ++i)
         {
             if (expenses[i]->date >= startDate && expenses[i]->date <= endDate)
@@ -473,7 +473,7 @@ private:
         cout << "\n--- Expenses in category: " << categoryItem << " ---\n";
         bool found = false;
 
-        // Check each expense for matching category
+        // Check each expense for matching category (case-sensitive comparison)
         for (int i = 0; i < size; ++i)
         {
             if (expenses[i]->category == categoryItem)
